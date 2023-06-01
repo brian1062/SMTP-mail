@@ -13,7 +13,7 @@ Para usar el programa SMTP-mail, siga estos pasos:
 - Ejecute el programa usando python smtp_mail.py
 
 # Créditos
-El proyecto SMTP-mail fue creado por Brian Gerard y Franco Viotti *UNICAMENTE*.
+El proyecto SMTP-mail fue creado por Brian Gerard, Emanuel Rodriguez y Franco Viotti.
 
 # Licencia
 Este proyecto está bajo la Licencia MIT.
