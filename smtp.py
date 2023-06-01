@@ -1,20 +1,25 @@
 import smtplib # library for smtp protocol
 from email.message import EmailMessage
+import getpass as gps
 
 # Configurar campos de encabezado del correo electrónico
 msg = EmailMessage()
-msg['Subject'] = 'Envio SMTP'
-msg['From'] = 'bgerard1062@gmail.com'
-msg['To'] = 'facundo.olivacuneo@unc.edu.ar'
+subject= input("Ingrese el asunto del correo: ")
+from_mail = input("Ingrese el correo del remitente: ")
+to_mail = input("Ingrese el correo del destinatario: ")
+msg['Subject'] = subject
+msg['From'] = from_mail
+msg['To'] = to_mail
 
 # Establecemos el contenido del correo electrónico
-msg.set_content('Hola, buenas tardes estamos probando envio de mensaje smtp, Grupo peaky Coders')
+msg_content = input("Ingrese el cuerpo del mensaje a enviar: ")
+msg.set_content(msg_content)
 
 # Creamos un objeto SMTP y lo conectamos al servidor SMTP
 with smtplib.SMTP('smtp.gmail.com', 587) as smtp:
     smtp.starttls()
-    contrasenia = input("Ingrese Su contraseña")
-    smtp.login('bgerard1062@gmail.com', contrasenia)
+    contrasenia = gps.getpass("Ingrese su contraseña: ")
+    smtp.login(from_mail, contrasenia)
 
     # Envio el correo electrónico
     smtp.send_message(msg)
